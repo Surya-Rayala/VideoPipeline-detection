@@ -1,8 +1,12 @@
 [project]
 name = "detect"
 version = "0.1.0"
-description = "Add your description here"
+description = "A modular **video object detection** toolkit with a clean **det-v1** JSON schema, pluggable backends, and optional model export."
 readme = "README.md"
+authors = [
+    { name = "Surya Chand Rayala", email = "suryachand2k1@gmail.com" }
+]
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
     "tqdm>=4.67.3",
