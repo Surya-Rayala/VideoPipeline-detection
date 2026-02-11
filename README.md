@@ -123,17 +123,11 @@ Create `run_detect.py`:
 
 ```python
 from detect.core.run import detect_video
-from detect.core.artifacts import ArtifactOptions
 
 res = detect_video(
     video="in.mp4",
     detector="yolo_bbox",
     weights="yolo26n",
-    artifacts=ArtifactOptions(
-        save_json=False,
-        save_frames=False,
-        save_video=False,
-    ),
 )
 
 payload = res.payload
@@ -145,6 +139,38 @@ Run:
 
 ```bash
 python run_detect.py
+```
+
+```md
+
+### Run model export from a Python file
+
+> Requires export extras: `pip install "detect[export]"` (or `uv sync --extra export`).
+
+Create `run_export.py`:
+
+```python
+from detect.backends import export_model
+
+res = export_model(
+    weights="yolo26n",
+    formats=["onnx"],
+    imgsz=640,
+    out_dir="models/exports",
+    run_name="y26_onnx_py",
+)
+
+print("run_dir:", res["run_dir"])
+print("artifacts:")
+for p in res["artifacts"]:
+    print(" -", p)
+```
+
+Run it:
+
+```bash
+python run_export.py
+```
 ```
 
 ---
