@@ -76,6 +76,10 @@ When no artifacts are enabled, no output directory/run folder is created.
 
 > Use this if you want to install and use the tool without cloning the repo.
 
+### Python version
+
+Requires **Python 3.11+**.
+
 ### Install
 
 ```bash
